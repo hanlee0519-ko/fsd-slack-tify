@@ -1,9 +1,7 @@
-import { homeTitle } from "./home-page.css";
-
-export function HomePage() {
+export const HomePage = () => {
   return (
-    <main className={homeTitle}>
-      <h1>Page - Input</h1>
-    </main>
+    <div>
+      <h1>Page - HomePage</h1>
+    </div>
   );
-}
+};

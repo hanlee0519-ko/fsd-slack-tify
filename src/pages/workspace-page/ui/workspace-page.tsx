@@ -1,7 +1,7 @@
-export default function WorkspacePage() {
+export const WorkspacePage = () => {
   return (
-    <main>
+    <>
       <h1>Page - Workspace</h1>
-    </main>
+    </>
   );
-}
+};

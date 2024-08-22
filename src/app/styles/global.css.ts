@@ -5,3 +5,7 @@ globalStyle("html, body", {
   padding: 0,
   backgroundColor: "lightgray",
 });
+
+globalStyle("main", {
+  padding: "10px",
+});
