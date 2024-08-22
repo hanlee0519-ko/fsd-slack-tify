@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
 import { channelGroup, channelItem } from "./channel-group.css";
 
 type ChannelItemProps = {
@@ -16,8 +13,6 @@ type ChannelProps = {
 
 const ChannelItem = ({ path, item: { id, name } }: ChannelItemProps) => {
   const href = id !== 0 ? path + "/" + name : path;
-  const segment = useSelectedLayoutSegment();
-  const decodeURLsegment = segment && decodeURIComponent(segment);
 
   return (
     <Link href={href} className={channelItem}>
