@@ -1,2 +1,2 @@
-export { type ChannelListType } from "./api/getChannel";
-export { getChannel } from "./api/getChannel";
+export { type ChannelListType } from "./api/get-channel";
+export { getChannel } from "./api/get-channel";
