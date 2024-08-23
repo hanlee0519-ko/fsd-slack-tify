@@ -1,4 +1,4 @@
-import { createSupabaseBrowserClient } from "@/src/shared/api";
+import { createSupabaseBrowserClient } from "@/src/shared/supabase";
 
 export type ChannelListType = {
   id: number;

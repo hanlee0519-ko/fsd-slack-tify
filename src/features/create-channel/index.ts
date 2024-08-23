@@ -1,1 +1,1 @@
-export { useChannel } from "./api/use-channel";
+export { useChannel } from "./model/use-channel";
