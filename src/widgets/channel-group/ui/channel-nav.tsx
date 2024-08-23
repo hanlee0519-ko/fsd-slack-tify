@@ -1,9 +1,9 @@
 "use client";
 
 import { useChannel } from "@/src/features/create-channel";
-import { ChannelGroup } from "@/src/widgets/channel-group";
+import { ChannelGroup } from "./channel-group";
 
-export const WorkspaceChannel = () => {
+export const ChannelNavigation = () => {
   const { channelList } = useChannel();
 
   if (channelList === null) return;

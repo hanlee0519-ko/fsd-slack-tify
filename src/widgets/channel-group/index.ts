@@ -1,1 +1,1 @@
-export { ChannelGroup } from "./ui/channel-group";
+export { ChannelNavigation } from "./ui/channel-nav";

@@ -1,4 +1,4 @@
-import { WorkspaceChannel } from "@/src/pages/workspace-page";
+import { ChannelNavigation } from "@/src/widgets/channel-group";
 
 export default async function WorkspaceLayout({
   children,
@@ -8,7 +8,7 @@ export default async function WorkspaceLayout({
   return (
     <div>
       <div>
-        <WorkspaceChannel />
+        <ChannelNavigation />
       </div>
       <main>{children}</main>
     </div>
