@@ -1,4 +1,4 @@
-import { ChannelNavigation } from "@/src/widgets/channel-group";
+import { ChannelNavigation } from "@/src/widgets/channel-nav";
 
 export default async function WorkspaceLayout({
   children,
