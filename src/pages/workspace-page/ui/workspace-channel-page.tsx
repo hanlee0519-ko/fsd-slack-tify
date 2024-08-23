@@ -1,7 +1,7 @@
 "use client";
 
 import { useChannel } from "@/src/features/create-channel";
-import { ChannelGroup } from "@/src/widgets/channel";
+import { ChannelGroup } from "@/src/widgets/channel-group";
 
 export const WorkspaceChannel = () => {
   const { channelList } = useChannel();
