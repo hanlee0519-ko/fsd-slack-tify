@@ -1,4 +1,8 @@
-import { type ChannelListType, getChannel } from "@/src/entities/channel";
+import {
+  type ChannelListType,
+  getChannel,
+  createChannel,
+} from "@/src/entities/channel";
 import { useEffect, useState } from "react";
 
 type ItemType = ChannelListType;
@@ -17,5 +21,10 @@ export const useChannel = () => {
     getChannelList();
   }, []);
 
-  return { channelList };
+  const addChannelList = async (channelName: string) => {
+    await createChannel(channelName);
+    await getChannelList();
+  };
+
+  return { channelList, addChannelList };
 };
