@@ -15,9 +15,11 @@ export const ChannelItem = ({ path, item: { id, name } }: ChannelItemProps) => {
   const href = id !== 0 ? path + "/" + name : path;
 
   return (
-    <Link href={href} className={channelItem}>
-      {name}
-    </Link>
+    <li>
+      <Link href={href} className={channelItem}>
+        {name}
+      </Link>
+    </li>
   );
 };
 

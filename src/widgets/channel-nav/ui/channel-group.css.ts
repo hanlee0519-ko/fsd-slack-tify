@@ -4,6 +4,7 @@ export const channelGroup = style({
   padding: "30px",
   backgroundColor: "orange",
   listStyle: "none",
+  display: "flex",
 });
 
 export const channelItem = style({

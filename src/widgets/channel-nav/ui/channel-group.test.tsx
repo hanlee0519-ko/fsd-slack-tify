@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { ChannelGroup, ChannelItem } from "./channel-group";
 import mockRouter from "next-router-mock";
 import { MemoryRouterProvider } from "next-router-mock/MemoryRouterProvider";
-import { ChannelGroup, ChannelItem } from "./channel-group";
-import userEvent from "@testing-library/user-event";
 
 const user = userEvent.setup();
 
 test("Props 전달 받은 items 갯수만큼 ChannelItem 컴포넌트가 생성된다", async () => {
-  // (1) 3개의 item을 가진 items 배열을 Props로 전달한다
+  // (1) 3개의 item을 가진 배열을 Props로 전달하여 ChannelGroup 컴포넌트를 렌더링 한다
   const testItems = [
     { id: 0, name: "channel" },
     { id: 1, name: "first" },
@@ -15,9 +15,9 @@ test("Props 전달 받은 items 갯수만큼 ChannelItem 컴포넌트가 생성�
   ];
   render(<ChannelGroup path="/test" items={testItems} />);
 
-  // (2) 3개의 item만큼 ChannelItem 컴포넌트가 생성되었는지 검증한다.
-  const itemComponents = screen.getAllByRole("list");
-  expect(itemComponents).toHaveLength(3);
+  // (2) 3개의 아이템 숫자 만큼 화면에 제대로 렌더링 되었는지 검증한다
+  const itemComponent = screen.getAllByRole("listitem");
+  expect(itemComponent).toHaveLength(3);
 });
 
 test("채널 이름을 클릭하면 해당 채널 이름으로 navigation 된다", async () => {
