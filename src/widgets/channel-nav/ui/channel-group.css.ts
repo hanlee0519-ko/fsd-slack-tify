@@ -3,6 +3,7 @@ import { style } from "@vanilla-extract/css";
 export const channelGroup = style({
   padding: "30px",
   backgroundColor: "orange",
+  listStyle: "none",
 });
 
 export const channelItem = style({

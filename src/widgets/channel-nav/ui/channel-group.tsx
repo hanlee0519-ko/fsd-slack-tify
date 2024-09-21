@@ -11,7 +11,7 @@ type ChannelProps = {
   items: { id: number; name: string }[];
 };
 
-const ChannelItem = ({ path, item: { id, name } }: ChannelItemProps) => {
+export const ChannelItem = ({ path, item: { id, name } }: ChannelItemProps) => {
   const href = id !== 0 ? path + "/" + name : path;
 
   return (
@@ -23,10 +23,10 @@ const ChannelItem = ({ path, item: { id, name } }: ChannelItemProps) => {
 
 export const ChannelGroup = ({ path, items }: ChannelProps) => {
   return (
-    <div className={channelGroup}>
+    <ul className={channelGroup}>
       {items.map((item) => (
         <ChannelItem key={item.id} path={path} item={item} />
       ))}
-    </div>
+    </ul>
   );
 };
