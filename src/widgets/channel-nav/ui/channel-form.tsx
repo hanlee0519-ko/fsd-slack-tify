@@ -4,10 +4,10 @@ import { type FormEvent, useState } from "react";
 import { formButton, formContainer, formInput } from "./channel-form.css";
 
 type ChannelFormPros = {
-  addChannelList: (channelName: string) => void;
+  onSubmit: (channelName: string) => void;
 };
 
-export const ChannelForm = ({ addChannelList }: ChannelFormPros) => {
+export const ChannelForm = ({ onSubmit }: ChannelFormPros) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -16,7 +16,7 @@ export const ChannelForm = ({ addChannelList }: ChannelFormPros) => {
     if (typeof inputValue === "undefined") return;
     if (inputValue.trim().length === 0) return;
 
-    addChannelList(inputValue);
+    onSubmit(inputValue);
     setInputValue("");
   };
 

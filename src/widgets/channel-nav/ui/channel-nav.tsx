@@ -16,7 +16,7 @@ export const ChannelNavigation = () => {
         <ChannelGroup path="/workspace" items={itemList} />
       </div>
       <div>
-        <ChannelForm addChannelList={addChannelList} />
+        <ChannelForm onSubmit={addChannelList} />
       </div>
     </div>
   );
