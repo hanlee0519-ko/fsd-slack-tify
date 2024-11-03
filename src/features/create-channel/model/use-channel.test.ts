@@ -28,8 +28,8 @@ test("useChannel 훅은 SUPABASE API 호출해, 배열('channelList') 반환한�
   });
 });
 
+// ** 질문사항
 test("useChannel 훅은 SUPABASE API 호출해, 새로운 채널이름을 등록할 수 있는 함수('addChannelList') 반환한다.", () => {
   // addChannelList 함수를 통해 사용자가 입력한 채널 이름을 새롭게 등록할 수 있다.
-  // addChannelList 함수는 createChannel 함수를 호출한다.
-  // 이를 위해 createChannel 함수는 채널 이름을 등록하는 SUPABASE API 메서드 사용한다.
+  // 해당 함수를 통해 새로운 채널 이름을 SUPABASE API에게 등록 요청을 할 수 있어야 한다.
 });
