@@ -7,6 +7,7 @@ type ChannelItemProps = {
 };
 
 type ChannelProps = {
+  loading: boolean;
   path: string;
   items: { id: number; name: string }[];
 };

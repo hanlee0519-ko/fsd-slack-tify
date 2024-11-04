@@ -19,7 +19,6 @@ const config: StorybookConfig = {
   staticDirs: ["../public"],
 
   webpackFinal: async (config) => {
-    // Vanilla Extract 로더 추가
     config.module?.rules?.push({
       test: /\.css\.ts$/,
       use: [
