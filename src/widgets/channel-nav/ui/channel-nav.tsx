@@ -20,12 +20,14 @@ export const ChannelNavigation = () => {
 
   if (data === undefined || data === null) return;
 
+  const channelList = [{ id: 0, name: "Home" }, ...data];
+
   if (isLoading) return <div>{"...Loading"}</div>;
 
   return (
     <div>
       <div>
-        <ChannelGroup path="/workspace" items={data} />
+        <ChannelGroup path="/workspace" items={channelList} />
       </div>
       <div>
         <ChannelForm onSubmit={addChannelClient.mutate} />
