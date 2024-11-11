@@ -8,15 +8,19 @@ import { createChannel, getChannel } from "@/src/entities/channel";
 export const ChannelNavigation = () => {
   const queryClient = useQueryClient();
 
-  const { data, isLoading } = useQuery({
+  const channelsQuery = {
     queryKey: ["channels"],
     queryFn: () => getChannel(),
-  });
+  };
 
-  const addChannelClient = useMutation({
+  const { data, isLoading } = useQuery(channelsQuery);
+
+  const addChannelsMutation = {
     mutationFn: (channelName: string) => createChannel(channelName),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["channels"] }),
-  });
+  };
+
+  const addChannelClient = useMutation(addChannelsMutation);
 
   if (data === undefined || data === null) return;
 
