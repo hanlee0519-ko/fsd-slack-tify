@@ -1,3 +1,3 @@
 export { type ChannelListType } from "./api/get-channel";
-export { getChannel } from "./api/get-channel";
-export { createChannel } from "./api/create-channel";
+export { useChannels } from "./api/get-channel";
+export { useCreateChannel } from "./api/create-channel";

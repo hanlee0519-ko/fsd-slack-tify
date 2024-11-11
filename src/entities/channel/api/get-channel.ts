@@ -1,4 +1,5 @@
 import { createSupabaseBrowserClient } from "@/src/shared/supabase";
+import { useQuery } from "@tanstack/react-query";
 
 export type ChannelListType = {
   id: number;
@@ -7,8 +8,17 @@ export type ChannelListType = {
 
 const SUPABASE_API_CLIENT = createSupabaseBrowserClient();
 
-export const getChannel = async (): Promise<ChannelListType[] | null> => {
-  let { data } = await SUPABASE_API_CLIENT.from("channelList").select("*");
+const getChannel = async (): Promise<ChannelListType[] | null> => {
+  const { data } = await SUPABASE_API_CLIENT.from("channelList").select("*");
 
   return data;
+};
+
+export const useChannels = () => {
+  const channelsQuery = {
+    queryKey: ["channels"],
+    queryFn: () => getChannel(),
+  };
+
+  return useQuery(channelsQuery);
 };

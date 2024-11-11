@@ -2,39 +2,24 @@
 
 import { ChannelGroup } from "./channel-group";
 import { ChannelForm } from "./channel-form";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { createChannel, getChannel } from "@/src/entities/channel";
+import { useChannels, useCreateChannel } from "@/src/entities/channel";
 
 export const ChannelNavigation = () => {
-  const queryClient = useQueryClient();
-
-  const channelsQuery = {
-    queryKey: ["channels"],
-    queryFn: () => getChannel(),
-  };
-
-  const { data, isLoading } = useQuery(channelsQuery);
-
-  const addChannelsMutation = {
-    mutationFn: (channelName: string) => createChannel(channelName),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["channels"] }),
-  };
-
-  const addChannelClient = useMutation(addChannelsMutation);
+  const { data } = useChannels();
+  const { mutate } = useCreateChannel();
 
   if (data === undefined || data === null) return;
-
-  const channelList = [{ id: 0, name: "Home" }, ...data];
-
-  if (isLoading) return <div>{"...Loading"}</div>;
 
   return (
     <div>
       <div>
-        <ChannelGroup path="/workspace" items={channelList} />
+        <ChannelGroup
+          path="/workspace"
+          items={[{ id: 0, name: "Home" }, ...data]}
+        />
       </div>
       <div>
-        <ChannelForm onSubmit={addChannelClient.mutate} />
+        <ChannelForm onSubmit={mutate} />
       </div>
     </div>
   );
