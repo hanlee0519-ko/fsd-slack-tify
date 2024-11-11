@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/src/app/styles/global.css";
-import { ReactQueryClientProvider } from "./ReactQueryClientProvider";
+import { ReactQueryClientProvider } from "@/src/shared/react-query/reactQuery-client-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FSD",
-  description: "Understanding FSD",
+  title: "slack-tify",
+  description: "Han Lee's Project based on Slack Service",
 };
 
 export default function RootLayout({
