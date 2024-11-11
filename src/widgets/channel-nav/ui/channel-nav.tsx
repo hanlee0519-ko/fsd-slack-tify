@@ -8,7 +8,7 @@ export const ChannelNavigation = () => {
   const { data } = useChannels();
   const { mutate } = useCreateChannel();
 
-  if (data === undefined || data === null) return;
+  if (!data) return;
 
   return (
     <div>
