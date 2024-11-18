@@ -8,10 +8,23 @@ export type ChannelListType = {
 
 const SUPABASE_API_CLIENT = createSupabaseBrowserClient();
 
-const getChannel = async (): Promise<ChannelListType[] | null> => {
+// const response = await fetch(
+//   "https://xmhlrtpwdnxooamdrfjg.supabase.co/rest/v1/channelList"
+// );
+
+export const getChannel = async (): Promise<ChannelListType[]> => {
   const { data } = await SUPABASE_API_CLIENT.from("channelList").select("*");
 
-  return data;
+  return data ? data : [];
+};
+
+const getChannelTest = async (): Promise<ChannelListType[]> => {
+  const response = await fetch(
+    "https://xmhlrtpwdnxooamdrfjg.supabase.co/rest/v1/channelList"
+  );
+  const data = await response.json();
+
+  return data ? data : [];
 };
 
 export const useChannels = () => {
@@ -20,5 +33,6 @@ export const useChannels = () => {
     queryFn: () => getChannel(),
   };
 
-  return useQuery(channelsQuery);
+  const response = useQuery(channelsQuery);
+  return response.data ? response.data : [];
 };

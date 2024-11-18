@@ -1,14 +1,12 @@
 "use client";
 
-import { ChannelGroup } from "./channel-group";
 import { ChannelForm } from "./channel-form";
+import { ChannelGroup } from "./channel-group";
 import { useChannels, useCreateChannel } from "@/src/entities/channel";
 
 export const ChannelNavigation = () => {
-  const { data } = useChannels();
+  const data = useChannels();
   const { mutate } = useCreateChannel();
-
-  if (!data) return;
 
   return (
     <div>
