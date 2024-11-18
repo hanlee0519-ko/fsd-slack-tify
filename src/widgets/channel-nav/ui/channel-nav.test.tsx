@@ -1,19 +1,17 @@
 import { renderHook, waitFor } from "@testing-library/react";
-import { useChannels } from "@/src/entities/channel";
+import { useTestChannels } from "@/src/entities/channel/api/get-channel";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { setupServer } from "msw/node";
 import { http, HttpResponse } from "msw";
 
 const handlers = [
-  http.get(
-    "https://xmhlrtpwdnxooamdrfjg.supabase.co/rest/v1/channelList",
-    () => {
-      return HttpResponse.json([
-        { id: 1, name: "First" },
-        { id: 2, name: "Second" },
-      ]);
-    }
-  ),
+  http.get("/channelList", () => {
+    return HttpResponse.json([
+      { id: 1, name: "First" },
+      { id: 2, name: "Second" },
+      { id: 3, name: "Third" },
+    ]);
+  }),
 ];
 const server = setupServer(...handlers);
 
@@ -35,10 +33,10 @@ const createQueryClientWrapper = () => {
   };
 };
 
-test("channel List form Custom Hook", async () => {
-  const { result } = renderHook(() => useChannels(), {
+test("Test for React-Query Hook - GET Method ", async () => {
+  const { result } = renderHook(() => useTestChannels(), {
     wrapper: createQueryClientWrapper(),
   });
 
-  await waitFor(() => expect(result.current).toHaveLength(2));
+  await waitFor(() => expect(result.current).toHaveLength(3));
 });
