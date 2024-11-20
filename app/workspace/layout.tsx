@@ -6,11 +6,11 @@ export default async function WorkspaceLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-      <div>
+    <>
+      <aside>
         <ChannelNavigation />
-      </div>
+      </aside>
       <main>{children}</main>
-    </div>
+    </>
   );
 }

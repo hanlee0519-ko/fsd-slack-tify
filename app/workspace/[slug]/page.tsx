@@ -1,4 +1,4 @@
-import { WorkspaceDetailPage } from "@/src/routes/workspace-page";
+import { WorkspaceDetailPage } from "@/src/routes/workspace-page/ui/workspaceDetail-page";
 
 export default function Page({
   params: { slug },

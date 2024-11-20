@@ -9,13 +9,9 @@ export const ChannelNavigation = () => {
   const createChannel = useCreateChannel();
 
   return (
-    <div>
-      <div>
-        <ChannelGroup path="/workspace" items={channels} />
-      </div>
-      <div>
-        <ChannelForm onSubmit={createChannel} />
-      </div>
-    </div>
+    <nav aria-label="channel navigation">
+      <ChannelGroup path="/workspace" items={channels} />
+      <ChannelForm onSubmit={createChannel} />
+    </nav>
   );
 };

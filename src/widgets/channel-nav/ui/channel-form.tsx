@@ -1,7 +1,7 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
-import { formButton, formContainer, formInput } from "./channel-form.css";
+import { formContainer, formInput } from "./channel-form.css";
 
 type ChannelFormPros = {
   onSubmit: (channelName: string) => void;
@@ -22,19 +22,17 @@ export const ChannelForm = ({ onSubmit }: ChannelFormPros) => {
 
   return (
     <form onSubmit={handleSubmit} className={formContainer}>
-      <p>
+      <fieldset className={formInput}>
         <input
+          aria-label="channel-name"
           type="text"
           value={inputValue || ""}
           placeholder="채널 이름을 입력하세요"
           onChange={(e) => setInputValue(e.target.value)}
           autoFocus
-          className={formInput}
         />
-        <button onClick={() => handleSubmit} className={formButton}>
-          추가
-        </button>
-      </p>
+        <button type="submit">추가</button>
+      </fieldset>
     </form>
   );
 };
