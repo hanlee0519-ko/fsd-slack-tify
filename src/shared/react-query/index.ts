@@ -1,2 +1,2 @@
-export { useGetChannels } from "./hooks/use-get-channels";
-export { useCreateChannel } from "./hooks/use-create-channels";
+export { useGetChannels } from "./hooks/useGet-channels";
+export { useCreateChannel } from "./hooks/useCreate-channel";
