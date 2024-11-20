@@ -1,11 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import NextLink from "next/link";
-
-import mockRouter from "next-router-mock";
 import { MemoryRouterProvider } from "next-router-mock/MemoryRouterProvider";
 import { ChannelGroup } from "./channel-group";
 
-it("NextLink can be rendered", () => {
+test("NextLink can be rendered", () => {
   render(
     <ChannelGroup
       path="/workspace"
